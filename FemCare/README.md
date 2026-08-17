@@ -1,32 +1,115 @@
-# React + TypeScript + Vite
+## Overview
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Wandor is an intelligent travel planning platform that transforms how people plan trips. Simply tell our AI where you're going and what you love — it generates a fully personalized itinerary tailored to your preferences, pace, and travel style.
 
-Currently, two official plugins are available:
+This repository contains the landing page built as a single-page application with a cinematic hero section, frosted-glass UI components, and a seamless user experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
 
-## React Compiler
+Technology	Purpose
+React 19	UI component library
+TypeScript	Type-safe JavaScript
+Vite 6	Lightning-fast dev server & bundler
+Tailwind CSS	Utility-first styling framework
+lucide-react	Icon library
+Fonts
+Geist (sans-serif) — Body & UI text
+Special Elite (serif) — Logo wordmark only
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## project Structure
 
-## Expanding the Oxlint configuration
+FemCare/
+├── public/
+│ └── favicon.svg
+├── src/
+│ ├── components/
+│ │ └── Hero.tsx # Full landing page (nav, hero, glass card)
+│ ├── App.tsx # Root component
+│ ├── main.tsx # Entry point
+│ └── index.css # Tailwind directives + global styles
+├── index.html # HTML shell with Google Fonts
+├── tailwind.config.js # Custom theme (colors, fonts)
+├── postcss.config.js # PostCSS with Tailwind + Autoprefixer
+├── vite.config.ts # Vite config with @/ path alias
+├── tsconfig.json # TypeScript project references
+├── tsconfig.app.json # App-specific TS config
+├── tsconfig.node.json # Node-specific TS config
+├── package.json
+└── .gitignore
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+text
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
+
+---
+
+## Features
+
+- **Cinematic Hero Section** — Full-viewport background video with a white-to-transparent gradient overlay for text legibility
+- **Frosted-Glass Prompt Card** — Liquid-glass effect using `backdrop-blur`, low-opacity fills, and thick translucent borders
+- **Responsive Navigation** — Desktop nav with centered links, auto-hides on mobile with adaptive spacing
+- **Micro-Interactions** — Hover opacity transitions, active scale feedback, upload button hover animation
+- **File Upload** — Hidden file input triggered by a frosted-glass upload button (accepts images & PDFs)
+- **Mobile-First Responsive** — Breakpoint at 768px with fluid typography via `clamp()`
+
+---
+
+## Getting Started
+
+### Prerequisites
+- **Node.js** ≥ 18
+- **npm** ≥ 9
+
+### Installation
+
+```bash
+git clone https://github.com/vaishnavi-shukla-cs/FemCare_AI.git
+cd FemCare_AI
+npm install
+Development
+bash
+
+npm run dev
+Opens at http://localhost:5173
+
+Production Build
+bash
+
+npm run build
+npm run preview
+Customization
+Colors
+Edit the wandor color palette in tailwind.config.js:
+
+js
+
+colors: {
+  wandor: {
+    dark: '#0a0a0a',
+    text: '#1a1a1a',
+    muted: '#767676',
+    prompt: '#905831',
   },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
 }
-```
+Fonts
+Replace the Google Fonts link in index.html and update tailwind.config.js:
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+js
+
+fontFamily: {
+  sans: ['YourFont', 'sans-serif'],
+  display: ['YourDisplayFont', 'serif'],
+}
+Background Video
+Change the src attribute on the <video> tag in src/components/Hero.tsx.
+
+Team
+Member
+Role
+Utkarsh Gupta	Team Leader
+Vaishnavi Trivedi	Developer
+Vaishnavi Shukla	Developer
+Tanisha Sharma	Developer
+
+Team ID: 26_CS_AI_3C_02
+Department of Artificial Intelligence — Pranveer Singh Institute of Technology, Kanpur
+Guide: Mr. Gaurav Singh, Assistant Professor
